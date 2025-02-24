@@ -1,0 +1,11 @@
+pandas
+sentence-transformers
+langchain
+langchain_core
+pinecone-client
+python-dotenv
+langchain_groq
+streamlit
+openai 
+langchain_openai
+langchain-ollama
