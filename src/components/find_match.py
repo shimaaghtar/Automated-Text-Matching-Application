@@ -10,6 +10,7 @@ from src.logging import logger
 from src.exception.exception import ProjectException
 from io import StringIO
 
+
 """
     Class responsible for matching external product names with internal product names
     using vector similarity search and LLM validation.
@@ -83,7 +84,7 @@ class FindMatch:
         cloud = os.environ.get('PINECONE_CLOUD') or 'aws'
         region = os.environ.get('PINECONE_REGION') or 'us-east-1'
         spec = ServerlessSpec(cloud=cloud, region=region)
-        index_name = "text-matching1"
+        index_name = "text-matching"
         if index_name not in pinecone.list_indexes():
             pinecone.create_index(name=index_name, metric="cosine", dimension=1536,spec=spec)
         index = pinecone.Index(index_name)
@@ -141,7 +142,6 @@ class FindMatch:
 
         # Merge NAME, OCS_NAME, LONG_NAME into one search column 
         self.internal_df["search_text"] = self.internal_df[["NAME", "OCS_NAME", "LONG_NAME"]].fillna("").agg(", ".join, axis=1)
-        index_name = "text-matching1"
         index_name = self._store_internal_products_embeddings(embeddings,pinecone)
         logger.logging.info("Embedded Internal Product Name is stored in Pinecone Vector DB") 
         

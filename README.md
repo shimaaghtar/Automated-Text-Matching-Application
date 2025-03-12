@@ -42,26 +42,21 @@ This project automates the process of matching external product names with inter
 
 ### **Installation Steps**
 
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/your-repo/text-matching.git
-   cd text-matching
-   ```
-2. Create a virtual environment:
+1. Create a virtual environment:
    ```sh
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
-3. Install dependencies:
+2. Install dependencies:
    ```sh
    pip install -r requirements.txt
    ```
-4. Set up environment variables:
-   ```sh
-   export OPENAI_API_KEY='your-api-key'
-   export PINECONE_API_KEY='your-api-key'
-   ```
-5. Run the Streamlit app:
+3. Add the key values to the .env file:
+
+   OPENAI_API_KEY='your-api-key'
+   PINECONE_API_KEY='your-api-key'
+
+4. Run the Streamlit app:
    ```sh
    streamlit run app.py
    ```
@@ -73,13 +68,6 @@ This project automates the process of matching external product names with inter
 3. Click on **Process Matches**.
 4. View results in a tabular format.
 5. Download the CSV of matched products.
-
-## **Future Enhancements**
-
-- Improve LLM prompt engineering for better accuracy.
-- Implement multi-stage filtering for more robust matching.
-- Add human-in-the-loop validation for edge cases.
-- Enhance Pinecone indexing for better retrieval performance.
 
 ## **Contributors**
 
